@@ -3,14 +3,21 @@
   "version": "1.0.0",
   "description": "A simple Express.js web app to show how to process uploaded files",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpenTechConsult/express-file.git"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "upload",
+    "forms",
+    "http"
+  ],
   "author": "Elom Atsou Agboka <opentech.consult@gmail.com> (https://github.com/OpenTechConsult)",
   "license": "MIT",
   "bugs": {
@@ -24,5 +31,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "engineStrict": true
 }

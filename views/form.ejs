@@ -1,0 +1,57 @@
+<%- include('partials/_htmlhead'); -%>
+
+    <h1>
+        <%= title %>
+    </h1>
+
+    <% if (data) { %>
+        <p>Data received in last request:</p>
+
+        <table>
+            <caption>Display form data</caption>
+            <% for (const name in data) { %>
+                <tr>
+                    <th>
+                        <%= name %> :   
+                    </th>
+                    <td>
+                        <%= data[name] %>
+                            <% if (name==='imageurl' ) { %>
+                                <img src="<%- data[name] %>" alt="uploaded image" />
+                                <% } %>
+                    </td>
+                </tr>
+                <% } %>
+        </table>
+        <% } %>
+
+
+            <p>Submission form</p>
+
+            <form action="/" method="post" enctype="multipart/form-data">
+
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="" placeholder="Your name">
+                </div>
+
+                <div>
+                    <label for="job">Job</label>
+                    <input type="text" name="job" id="job" value="" placeholder="Your Job">
+                </div>
+
+                <div>
+                    <label for="nodejs">Like Node.js</label>
+                    <input type="checkbox" name="nodejs" id="nodejs" value="yes" checked>
+                </div>
+
+                <div>
+                    <label for="image">Upload image</label>
+                    <input type="file" name="image" id="image" accept="image/*">
+                </div>
+
+                <input type="hidden" name="date" value="<%= new Date()  %> ">
+                <button>Submit</button>
+            </form>
+
+            <%- include('partials/_htmlfoot'); -%>
